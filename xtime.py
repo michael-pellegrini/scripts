@@ -3,6 +3,7 @@ import subprocess, re, os
 from datetime import datetime
 
 def main():
+  sysos()
   systime()
   sysuptime()
   sessions()
@@ -10,10 +11,16 @@ def main():
   users()
   storage()
 
+def sysos():
+  output = str.splitlines(os.fsdecode(subprocess.check_output(['lsb_release', '-idrc'])))
+  print('\n' + esc('1;34') + ' Operating System Distribution' + esc(0))
+  for line in output:
+    print(' ' + line)
+  print()
+
 def systime():
   time = datetime.now()
-  print("")
-  print(esc('1;34') + ' System Time: '+ esc(0)  + time.strftime('%I:%M %p'))
+  print(esc('1;34') + ' System Time: '+ esc(0)  + time.strftime('%I:%M %p -> %b %d %Y'))
 
 def sysuptime():
   output = os.fsdecode(subprocess.check_output(['uptime', '-p']))
@@ -39,7 +46,6 @@ def users():
 
 def storage():
   output = str.splitlines(os.fsdecode(subprocess.check_output(['lsblk', '-fm', '-o' 'NAME,' 'FSTYPE,' 'FSAVAIL,' 'FSUSE%,' 'MOUNTPOINT,' 'SIZE,' 'OWNER,' 'GROUP,' 'MODE', '-e 7'])))
-
   print(esc('1;34') + " List of drives, partitions, and details" + esc(0))
   for line in output:
     print(" " + line)
