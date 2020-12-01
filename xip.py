@@ -23,7 +23,7 @@ def layer3():
   print(out1)
 
 def layer4():
-  out = os.fsdecode(subprocess.check_output(['ss', '-ltu']))
+  out = os.fsdecode(subprocess.check_output(['ss', '-lntu']))
   print(esc('1;31') + 'Layer 4 - TCP and UDP listening sockets.\n' + esc(0) + out)
 
 def dns():
