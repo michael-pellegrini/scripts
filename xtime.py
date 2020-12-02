@@ -9,6 +9,7 @@ def main():
   sessions()
   loadavg()
   users()
+  memory()
   storage()
 
 def sysos():
@@ -40,6 +41,13 @@ def loadavg():
 def users():
   output = str.splitlines(os.fsdecode(subprocess.check_output(['w', '-h'])))
   print(esc('1;34') + " List of logged in users and what they're doing." + esc(0))
+  for line in output:
+    print(" " + line)
+  print('')
+
+def memory():
+  output = str.splitlines(os.fsdecode(subprocess.check_output(['free', '-ht'])))
+  print(esc('1;34') + " Display free and used memory. " + esc(0))
   for line in output:
     print(" " + line)
   print('')
