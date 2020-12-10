@@ -30,7 +30,7 @@ def sysuptime():
 
 def sessions():
   output = os.fsdecode(subprocess.check_output('uptime'))
-  out = re.search(r"(\d+)\s+users", output).group(1)
+  out = re.search(r"(\d+)\s+[users]|[user]", output).group(1)
   print(esc('1;93') + ' Number of active user sessions: ' + esc(0), out + ' user sessions')
 
 def loadavg():
