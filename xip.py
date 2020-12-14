@@ -31,7 +31,7 @@ def dns():
     out = os.fsdecode(subprocess.check_output(['nslookup', 'google.com']))
     print(esc('1;31') + 'Layer 7 - DNS test to google.com\n' + esc(0) + out)
   except Exception:
-    print('Is nslookup installed?')
+    print('Check DNS resolver and/or network connection.\nIs nslookup installed?')
 
 def esc(code):
   return f'\033[{code}m'
