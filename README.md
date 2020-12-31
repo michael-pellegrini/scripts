@@ -1,4 +1,4 @@
-Python3 wrapper's for some shell commannds. Tested on kubuntu 20.04.
+Python3 wrapper's for some shell commands. Tested on kubuntu 20.04.
 #### Required commands 
 xip.py - ip, ss, nslookup
 
