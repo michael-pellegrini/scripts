@@ -1,7 +1,9 @@
-Python3 wrapper's for some shell commands. Tested on kubuntu 20.04.
+Python3 wrappers that output some practical system details. Tested on Ubuntu 24.04.2
+
 #### Required commands 
-xip.py - ip, ss, nslookup
+**xip.py** - ip, ss, nslookup
 
-xtime.py - lsb_release, free, uptime, w, lsblk
+**xtime.py** - lsb_release, free, uptime, w, lsblk
 
-xsed.py - sed
+**xsed.py** - sed
+
